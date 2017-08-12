@@ -136,12 +136,12 @@
                 function clearTable() {
                     var currentURL = window.location.origin;
                     $.ajax({url: currentURL + "/api/clear", method: "POST"})
-                }
+            
 
                     $("#clear").on('click', function(){
                         alert("Clearing...");
                         clearTable();
-                        location.reload();
+                        //location.reload();
                     })
 
                     
