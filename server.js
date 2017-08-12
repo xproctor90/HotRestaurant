@@ -55,14 +55,8 @@ app.get("/api/waitlist", function(req, res) {
 app.post("/api/new", function(req, res) {
 	var newRes = req.body;
 	console.log(newRes);
+	reservations.push(newRes);
 
-	if (reservations.length < 5) {
-		reservations.push(newRes);
-		console.log(reservations);
-	} else {
-		waitlist.push(newRes);
-		console.log(waitlist);
-	}
 
 	res.json(newRes);
 });
