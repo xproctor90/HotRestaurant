@@ -16,24 +16,24 @@ var reservations = [{
 	name: "yoda",
 	number: "9999999999",
 	email: "yoda@theforce.org",
-	id: "sizemattersnot"
+	ID: "sizemattersnot"
 }, {
 	name: "aang",
 	number: "0101010101",
 	email: "thelastairbender@avatar.com",
-	id: "momowashere"
+	ID: "momowashere"
 }, {
 	name: "cuzco",
 	number: "3333333333",
 	email: "theemperor@peru.gov",
-	id: "imperialhairness"
+	ID: "imperialhairness"
 }];
 
 var waitlist = [{
 	name: "",
 	number: "",
 	email: "",
-	id: ""
+	ID: ""
 }];
 
 //routes
@@ -58,6 +58,18 @@ app.get("/api/waitlist", function(req, res) {
 });
 
 //reservation create
+app.post("api/new", function(req, res) {
+	var newRes = req.body;
+	console.log(newRes);
+
+	if (reservations.length < 5) {
+		reservations.push(newRes);
+		console.log(reservations);
+	} else {
+		waitlist.push(newRes);
+		console.log(waitlist);
+	}
+})
 
 //server start
 app.listen(PORT, function() {
