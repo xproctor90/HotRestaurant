@@ -86,7 +86,7 @@
     <!--JQUERY & AJAX Stuff -->
     <script type="text/javascript">
         function runTableQuery(){
-            var currentURL = windon.location.origin;
+            var currentURL = window.location.origin;
             //AJAX
             $.ajax({url: currentURL + "/api/tables", method: "GET"})
                 .done(function(tableData) {
@@ -143,6 +143,8 @@
                         clearTable();
                         location.reload();
                     })
+
+                    
                     runTableQuery();
                     runWaitListQuery();
         </script>
