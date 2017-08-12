@@ -39,7 +39,7 @@
                     <h4 class="panel-title"> Current Reservations</h4>
                 </div>
             <div class="panel-body" id="tableSection">
-                <div class="well" id="tableWell">
+<!--                 <div class="well" id="tableWell">
                     <h2>
                         <span class="label label-primary">1</span>
                         Caroline95
@@ -56,11 +56,11 @@
                         <span class="label label-primary">3</span>
                         Laurel88
                     </h2>
-                </div>
+                </div> -->
             </div>
         </div>
         <!--Waiting List -->
-            <div class "panel panel-default">
+            <div class = "panel panel-default">
                 <div class="panel-heading">
                     <h4 class+"panel-title">Waiting List</h4>
                 </div>
@@ -96,10 +96,10 @@
 
             if (i < 5) {
                 $("#tableSection").append(wellSection);
-                $("#tableWell-" + i).append("<h3>" + data[i].ID + "</h3>");
+                $("#tableWell-" + i).append("<h3><span class='label label-primary'>" + parseInt(i+1) +"</span> " + data[i].ID + "</h3>");
             } else {
                 $("#waitlistSection").append(wellSection);
-                $("#tableWell-" + i).append("<h3><span class=label label-primary>" + i+1 +"| </span>" + data[i].ID + "</h3>");
+                $("#tableWell-" + i).append("<h3><span class='label label-primary'>" + parseInt(i-4) +"</span> " + data[i].ID + "</h3>");
             }
             
           }
@@ -156,7 +156,7 @@
                 // function clearTable() {
                 //     var currentURL = window.location.origin;
                 //     $.ajax({url: currentURL + "/api/clear", method: "POST"})
-            
+                // }
 
                 //     $("#clear").on('click', function(){
                 //         alert("Clearing...");
