@@ -1,0 +1,26 @@
+{
+  "name": "HotRestaurant",
+  "version": "1.0.0",
+  "description": "A app for the hottest restaurant waiting list",
+  "main": "reservations.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xproctor90/HotRestaurant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xproctor90/HotRestaurant/issues"
+  },
+  "homepage": "https://github.com/xproctor90/HotRestaurant#readme"
+}
