@@ -29,12 +29,6 @@ var reservations = [{
 	ID: "imperialhairness"
 }];
 
-var waitlist = [{
-	name: "",
-	number: "",
-	email: "",
-	ID: ""
-}];
 
 //routes
 app.get("/", function(req, res) {
