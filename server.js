@@ -71,7 +71,7 @@ app.post("api/new", function(req, res) {
 	}
 
 	res.json(newRes);
-})
+});
 
 //server start
 app.listen(PORT, function() {
