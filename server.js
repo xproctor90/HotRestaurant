@@ -69,6 +69,8 @@ app.post("api/new", function(req, res) {
 		waitlist.push(newRes);
 		console.log(waitlist);
 	}
+
+	res.json(newRes);
 })
 
 //server start
