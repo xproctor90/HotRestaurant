@@ -75,15 +75,79 @@
             <p>Control Panel</p>
             <p>
             <a href="#" id="clear">Clear Table</a>
-            "|"
+            |
             <a href="/api/tables">API Table Link</a>
-            "|"
+            |
             <a href="/api/waitlist">API Wait List</a>
             </p>
         </div>
     </footer>
 
-	</div>
+    <!--JQUERY & AJAX Stuff -->
+    <script type="text/javascript">
+        function runTableQuery(){
+            var currentURL = windon.location.origin;
+            //AJAX
+            $.ajax({url: currentURL + "/api/tables", method: "GET"})
+                .done(function(tableData) {
+                    console.log("--------------------------------");
+                    console.log("URL: " + currentURL + "/api/tables");
+                    console.log("--------------------------------");
+                    console.log(tableData);
+                    console.log("--------------------------------");
+
+                    for (var i=0; i<tableData.length; i++){
+                        var tableSection = $("<div>");
+                        tableSection.addClass('well');
+                        tableSection.attr('id', 'tableWell-' + i+1)
+                        $('#tableSection').append(tableSection);
+
+                        var tableNumber = i + 1;
+                        
+                        $("#tableWell-" + i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + tableData[i].customerID + "</h2>");
+
+                    }
+                });
+        }
+            function runWaitListQuery() {
+                var currentUrl = window.location.origin;
+                $.ajax({url: currentUrl + "api/waitlist", method: "GET"})
+                    .done(function(waitlistData) {
+                    console.log("--------------------------------");
+                    console.log("URL: " + currentURL + "/api/waitlist");
+                    console.log("--------------------------------");
+                    console.log(waitListData);
+                    console.log("--------------------------------");
+
+                        for (var i=0; i<waitListData.length; i++){
+                        var waitListSection = $("<div>");
+                        waitListSection.addClass('well');
+                        waitListSection.attr('id', 'tableWell-' + i+1)
+                        $('#waitListSection').append(tableSection);
+
+                        var tableNumber = i + 1;
+                        
+                        $("#waitListWell-" + i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " + waitListData[i].customerID + "</h2>");
+                        }
+                        
+                    });
+            }
+
+                function clearTable() {
+                    var currentURL = window.location.origin;
+                    $.ajax({url: currentURL + "/api/clear", method: "POST"})
+                }
+
+                    $("#clear").on('click', function(){
+                        alert("Clearing...");
+                        clearTable();
+                        location.reload();
+                    })
+                    runTableQuery();
+                    runWaitListQuery();
+        </script>
+	
+    </div>
 	
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
