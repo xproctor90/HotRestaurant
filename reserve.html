@@ -72,7 +72,26 @@
 
     </footer>
   </div>
+<script type="text/javascript">
+    // Question: What does this code do?
+    $("#add-btn").on("click", function(event) {
+      event.preventDefault();
 
+      var newReserve = {
+        name: $("#name").val().trim(),
+        phone: $("#phone").val().trim(),
+        email: $("#email").val().trim(),
+        ID: $("#ID").val().trim()
+      };
+
+      $.post("/api/new", newReserve)
+      .done(function(data) {
+        console.log(data);
+        alert("Adding table...");
+      });
+
+    });
+  </script>
   
 </body>
 </html>
